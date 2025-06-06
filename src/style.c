@@ -1925,7 +1925,7 @@ StyleSelector *ParseSelector(char *str, HTList *selectors)
 		    selector->ss.class = strdup(class);
 		selector->ancestor = prev_selector;
 		prev_selector = selector;
-		HTList_addObject(selectors, (void *) selector);
+		//HTList_addObject(selectors, (void *) selector);
 	    }
 	    return NULL;
 	}

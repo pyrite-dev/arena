@@ -1737,6 +1737,13 @@ int RecogniseTag(void)
     s -= len;
     c = TOLOWER(*s);
 
+    if(len == 6 && strncasecmp(s, "script", len) == 0){
+	    TagLen = 0;
+	    TokenClass = EN_UNKNOWN;
+	    while(strncasecmp(bufptr, "/script", 7) != 0) bufptr++;
+	    return UNKNOWN;
+    }
+
     if (isalpha(c))
     {
         if (c == 'a')
@@ -6460,6 +6467,13 @@ void ParseBody(int implied, Frame *frame, int left, int right, int margin)
             Here = left;
             continue;
         }
+
+	if (Token == TAG_STYLE)
+	{
+	    UnGetToken();
+	    ParseStyle(frame);
+	    continue;
+	}
 
         if (Token == ENDDATA)
         {

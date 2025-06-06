@@ -2393,7 +2393,7 @@ void ParseBase(Frame *frame)
 
     ParseAnchorAttrs(&href, &hreflen, &name, &namelen, &class, &class_len);
     if(href)
-	CurrentDoc->base = strndup(href, hreflen);
+	CurrentDoc->base = www_strndup(href, hreflen);
 }
 
 void ParseLink(Frame *frame)
@@ -2671,7 +2671,7 @@ void ParseAnchorAttrs(char **href, int *hreflen, char **name, int *namelen, char
         if (n == 5 && strncasecmp(attr, "class", n) == 0)
         {
 	    if (STYLE_TRACE) {
-		char *s = strndup(attr, n);
+		char *s = www_strndup(attr, n);
 		fprintf(stderr,"style_class %s\n",s);
 		Free(s);
 	    }
@@ -3170,7 +3170,7 @@ ParseClassAttrs(char **class_p, int *class_len_p)
         if (n == 5 && strncasecmp(attr, "class", n) == 0)
         {
 	    if (STYLE_TRACE) {
-		char *s = strndup(attrval, m);
+		char *s = www_strndup(attrval, m);
 		fprintf(stderr,"style_class %s\n",s);
 		Free(s);
 	    }
@@ -3224,7 +3224,7 @@ ParseParaAttrs(int *align, char **class_p, int *class_len_p)
         if (n == 5 && strncasecmp(attr, "class", n) == 0)
         {
 	    if (STYLE_TRACE) {
-		char *s = strndup(attrval, m);
+		char *s = www_strndup(attrval, m);
 		fprintf(stderr,"style_class %s\n",s);
 		Free(s);
 	    }

@@ -368,7 +368,7 @@ Field *GetField(Form *form, int type, int x, char *name, int nlen,
 	field->type = type;
 	field->name = name;
 	field->nlen = nlen;
-	field->value = strndup(value, vlen);
+	field->value = www_strndup(value, vlen);
 	field->bufsize = vlen+1;
 	field->buflen = vlen;    
 	field->flags = flags;

@@ -522,7 +522,7 @@ HTAnchor *libExpandHref(char *href, size_t hreflen) /* wm 18.Jan.95 */
     HTParentAnchor *parent_anchor;
     HTAnchor *anchor;
     
-    hrefdup = strndup(href,hreflen);
+    hrefdup = www_strndup(href,hreflen);
 
     if (strncmp(href,"mailto:",7) == 0) { 
 	Announce("mailto not supported: %s",hrefdup);
@@ -861,7 +861,7 @@ Doc *GetInline(char *href, int hreflen, BOOL reload)
 
 
 	if (BRIDGE_TRACE) {
-	    char *s = strndup(href, hreflen);
+	    char *s = www_strndup(href, hreflen);
 	    fprintf(stderr,"GetInline registering %s\n",s);
 	    Free(s);
 	}
@@ -885,7 +885,7 @@ Doc *GetInline(char *href, int hreflen, BOOL reload)
 
 	  case DOC_PENDING:
 	    if (BRIDGE_TRACE) {
-		char *s = strndup(href, hreflen);
+		char *s = www_strndup(href, hreflen);
 		fprintf(stderr,"doc has been registered, but not loaded -> returning default%s\n",s);
 		Free(s);
 	    }
@@ -1055,6 +1055,7 @@ void libEntry(int c)
 }
 
 
+#if 0
 void HTCallClient(HTXParseStruct * eps)
 {
     Doc *doc = NULL;
@@ -1193,7 +1194,7 @@ void HTCallClient(HTXParseStruct * eps)
     }
     return;
 }
-
+#endif
 
 
 

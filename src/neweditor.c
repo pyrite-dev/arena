@@ -174,7 +174,7 @@ int DeleteChar(EditorBuffer *buffer, int pos)
 	}
 	else /* size 1 -> we remove the bank */
 	{
-#ifdef __STRICT_ANSI__
+#if 1
 	    if(buffer_cell->prev)
 		buffer_cell->prev->next = buffer_cell->next;
 	    else

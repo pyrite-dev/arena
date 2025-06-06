@@ -7,11 +7,9 @@
 #include <ctype.h>
 #include <math.h>
 
-#define Byte WWWByte 
 #include "png.h" 
 #include "www.h"
 #include "www.bm"
-#undef Byte
 
 #include "arena_png.h"
 

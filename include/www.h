@@ -58,7 +58,7 @@
 
 #include "machdep.h"	/* machine dependent definitions wm 24.Mar.95 */
 
-
+#include <stdarg.h>
 #include "HTUtils.h"
 #include "tcp.h"
 #include "HTString.h"
@@ -1640,7 +1640,7 @@ typedef struct s_edit_view
 /* util.c */
 
 void HTList_addObjectFirst (HTList *me, void *newObject);
-char *strndup(char *s, int n);
+char *www_strndup(char *s, int n);
 char *str_tok(char *a, char *b, char **c);
 char *chop_str(char *p);
 Byte hex2byte(char c);

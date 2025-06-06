@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-#define Byte WWWByte  
 #include "png.h"  
 #include "www.h" 
 
@@ -65,6 +64,7 @@ arena_prog_png_read_data(png_structp png_ptr, png_bytep data, png_uint_32 length
   }
 }
 
+#if 0
 void
 png_error(png_struct *png_ptr, char *message)
 {
@@ -82,6 +82,7 @@ png_warning(png_struct *png_ptr, char *message)
   fprintf(stderr,"libpng warning: %s\n", message);
   /* Warn("libpng warning: %s\n", message); */
 }
+#endif
 
 
 /* Read image into displays 1,2 or 4 bit deep */

@@ -46,7 +46,7 @@ void HTList_addObjectFirst (HTList *me, void *newObject) /* howcome 26/1/95 */
 
 
 
-char *strndup(char *s, int n)
+char *www_strndup(char *s, int n)
 {
     char *pp;
 
@@ -121,7 +121,7 @@ char *chop_str(char *p)
     if (p_start > p_end)
 	return (strdup(p));
     else
-	return((char *)strndup(p_start, p_end - p_start + 1));
+	return((char *)www_strndup(p_start, p_end - p_start + 1));
 }
 
 Byte hex2byte(char c)

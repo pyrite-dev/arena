@@ -43,12 +43,6 @@ extern unsigned long windowColor;
 
 /* Copyright (c) 1991 Bell Communications Research, Inc. (Bellcore) */
 
-#if defined __QNX__ || (defined(sco) && !defined(sco_os5))
-#define index strchr
-#else
-extern char *index();
-#endif
-
 static char basis_64[] =
    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 /* janet: not used

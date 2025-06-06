@@ -255,7 +255,7 @@ void FormUpdate(TextField *tf)
 	if (!p)
 	    p = tf->buffer + tf->used;
 
-	s = strndup(tf->e, p - tf->e);
+	s = www_strndup(tf->e, p - tf->e);
     
 	if (tf->scratch[0] != 0) {
 	    fprintf(stderr,"%s",s);

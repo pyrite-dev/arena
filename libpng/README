@@ -1,0 +1,22 @@
+To get from libpng.tar.gz to built library
+------------------------------------------
+0) Get archive
+
+From: ftp://ftp.group42.com/pub/png/ or ftp://ftp.uu.net/graphics/png/
+
+1) Extract archive
+	mkdir Implementation
+	cd Implementation
+	gnutar xvfpz ../libpng*.tar.gz
+
+2) Apply patch(es) to libpng source:
+
+This may be needed to fix gamma rounding bug in 0.81
+	patch < ../libpng-0.81-bugpatch
+
+General patch for arena
+	patch < ../libpng-arena-patch 
+
+3) Build
+	make libpng.a
+

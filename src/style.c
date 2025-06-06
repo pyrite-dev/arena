@@ -2756,7 +2756,7 @@ void FormatElementStart(int element, char *class, int class_len)
 
     stack_el->element = element;
     if (class)
-	stack_el->class = strndup(class, class_len);
+	stack_el->class = www_strndup(class, class_len);
 
     HTArray_addObject(style_stack, (void *)stack_el); 
 

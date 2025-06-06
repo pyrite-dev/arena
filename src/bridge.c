@@ -1055,7 +1055,6 @@ void libEntry(int c)
 }
 
 
-#if 0
 void HTCallClient(HTXParseStruct * eps)
 {
     Doc *doc = NULL;
@@ -1194,7 +1193,6 @@ void HTCallClient(HTXParseStruct * eps)
     }
     return;
 }
-#endif
 
 
 

@@ -1,6 +1,6 @@
 CC = cc
 AR = ar
-CFLAGS = -fcommon -fPIC -Isrc -Iinclude -Ilibwww/include -Ilibpng -I/usr/X11R7/include -I/usr/pkg/include
+CFLAGS = -g -fcommon -fPIC -Isrc -Iinclude -Ilibwww/include -Ilibpng -I/usr/X11R7/include -I/usr/pkg/include
 LDFLAGS = -L/usr/X11R7/lib -L/usr/pkg/lib
 LIBS = -lz -lm -lX11 -ljpeg
 

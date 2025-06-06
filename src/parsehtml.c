@@ -3498,9 +3498,10 @@ void ParseEmph(Frame *frame, int align, unsigned int emph, int font, int left, i
     {
     case TAG_ANCHOR:
 	ParseAnchorAttrs(&href, &hreflen, &name, &namelen, &class, &class_len);
+	Here += 2;
 	
 	if (href) {
-	    emph |= EMPH_ANCHOR;
+	    emph |= EMPH_ANCHOR | EMPH_UNDERLINE;
 	    FormatElementStart(Token, class, class_len);
 	    element_started = TRUE;
 	}

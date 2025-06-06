@@ -1365,10 +1365,12 @@ void DrawFrameAnchor(int up, int indent, Byte *start, Byte *end)
 
                         if (anchor_start <= s && s <= anchor_end)
                         {
+#ifdef ANCHOR_BUTTON
                             if (up)
                                 DrawHButtonUp(x1, y2, width, height);
                             else
                                 DrawHButtonDown(x1, y2, width, height);
+#endif
                         }
                     }
                     break;
@@ -2283,7 +2285,9 @@ void PaintFrame(Window w,unsigned char *p, unsigned char *p_end, int x, int y, u
 		    if (emph & EMPH_ANCHOR)
                     {
                         y2 = yb - yi - ASCENT(font) - 1;
+#ifdef ANCHOR_BUTTON
                         DrawHButtonUp(x1-PixelIndent, y2, width, LineSpacing[fnt]);
+#endif
                     }
 
                     if (emph & EMPH_UNDERLINE)

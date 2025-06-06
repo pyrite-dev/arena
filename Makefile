@@ -1,6 +1,6 @@
 CC = cc
 AR = ar
-CFLAGS = -g -fcommon -fPIC -Isrc -Iinclude -Ilibwww/include -Ilibpng -I/usr/X11R7/include -I/usr/pkg/include -Wno-error=implicit-function-declaration -Wno-error=incompatible-pointer-types -Wno-error=int-conversion -Wno-error=implicit-int -DNO_TIMEZONE
+CFLAGS = -g -fcommon -fPIC -Isrc -Iinclude -Ilibwww/include -Ilibpng -I/usr/X11R7/include -I/usr/pkg/include -Wno-error=implicit-function-declaration -Wno-error=incompatible-pointer-types -Wno-error=int-conversion -Wno-error=implicit-int -DNO_TIMEZONE -DHAVE_STRERROR
 LDFLAGS = -L/usr/X11R7/lib -L/usr/pkg/lib
 LIBS = -lz -lm -lX11 -ljpeg
 
@@ -26,10 +26,10 @@ $(PNG): $(PNGOBJS)
 	$(AR) rcs $@ $(PNGOBJS)
 
 libarena.so: $(OBJS) $(PNG) $(WWW)
-	$(CC) $(LDFLAGS) -shared -o $@ $(OBJS) $(LIBS) $(PNG) $(WWW)
+	$(CC) $(LDFLAGS) -shared -o $@ $(OBJS) $(PNG) $(WWW) $(LIBS)
 
 arena: $(OBJS) $(PNG) $(WWW)
-	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS) $(PNG) $(WWW)
+	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(PNG) $(WWW) $(LIBS)
 
 .c.o:
 	$(CC) $(CFLAGS) -c -o $@ $<

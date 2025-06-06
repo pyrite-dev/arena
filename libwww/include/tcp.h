@@ -748,6 +748,7 @@ Linux
 #include <unistd.h>
 #include <limits.h>
 #include <sys/fcntl.h>
+#include <time.h>
 
 #define NO_ALTZONE
 #define NO_GETWD

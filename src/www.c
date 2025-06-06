@@ -1361,6 +1361,7 @@ void MakePaper()
 /*        XQueryBestTile(display, win, tileWidth, tileHeight, &tileWidth, &tileHeight); */
 
         tileData = CreateBackground(tileWidth, tileHeight, depth);
+	memset(tileData, 255, tileWidth * tileHeight * ((depth == 24 ? 32 : depth) / 8));
 
         if (!tileData)
         {

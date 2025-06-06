@@ -77,7 +77,7 @@
 #define COMPACTDEFLISTS 1   /* comment out for old style */
 
 #define HELP_URL   "http://www.w3.org/pub/WWW/Arena/beta-3"
-#define DEFAULT_URL "http://www.w3.org/pub/WWW/Arena/beta-3"
+#define DEFAULT_URL "http://info.cern.ch/hypertext/WWW/TheProject.html"
 #define PRINTER     "alljet"
 
 #if defined POINTER_IS_64BIT

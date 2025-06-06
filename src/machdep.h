@@ -8,7 +8,7 @@
 #ifndef _MACHDEP_
 #define _MACHDEP_
 
-#if defined (__alpha) && defined (__osf__)
+#if defined(_LP64)
 #define POINTER_IS_64BIT	1
 #define POINTERSIZE     	8 /* byte */
 #else

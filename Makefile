@@ -4,6 +4,9 @@ CFLAGS = -fcommon -fPIC -Isrc -Iinclude -Ilibwww/include -Ilibpng -I/usr/X11R7/i
 LDFLAGS = -L/usr/X11R7/lib -L/usr/pkg/lib
 LIBS = -lz -lm -lX11 -ljpeg
 
+WWW = libwww.a
+PNG = libpng.a
+
 .PHONY: all clean
 .SUFFIXES: .c .o
 
@@ -16,14 +19,20 @@ ALLOBJS = $(OBJS) $(PNGOBJS) $(WWWOBJS)
 libarena.a: $(ALLOBJS)
 	$(AR) rcs $@ $(ALLOBJS)
 
-libarena.so: $(ALLOBJS)
-	$(CC) $(LDFLAGS) -shared -o $@ $(ALLOBJS) $(LIBS)
+$(WWW): $(WWWOBJS)
+	$(AR) rcs $@ $(WWWOBJS)
 
-arena: $(ALLOBJS)
-	$(CC) $(LDFLAGS) -o $@ $(ALLOBJS) $(LIBS)
+$(PNG): $(PNGOBJS)
+	$(AR) rcs $@ $(PNGOBJS)
+
+libarena.so: $(OBJS) $(PNG) $(WWW)
+	$(CC) $(LDFLAGS) -shared -o $@ $(OBJS) $(LIBS) $(PNG) $(WWW)
+
+arena: $(OBJS) $(PNG) $(WWW)
+	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS) $(PNG) $(WWW)
 
 .c.o:
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f libarena.a libarena.so arena src/*.o libwww/src/*.o libpng/*.o
+	rm -f arena src/*.o libwww/src/*.o libpng/*.o *.a *.so

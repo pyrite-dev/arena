@@ -1103,6 +1103,7 @@ typedef struct sockaddr_in SockA;  /* See netinet/in.h */
 #include <netinet/in.h>
 #include <arpa/inet.h>                 /* Must be after netinet/in.h */
 #include <netdb.h>
+#include <unistd.h>
 #define TCP_INCLUDES_DONE
 #endif
 /*
@@ -1130,7 +1131,7 @@ extern int sys_nerr;
    
  */
 #ifndef SOCKET
-#define SOCKET int              /* Unix like socket descriptor */
+#define SOCKET long long        /* Unix like socket descriptor */
 #define INVSOC (-1)             /* Unix invalid socket */
 #endif
 

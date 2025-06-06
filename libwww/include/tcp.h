@@ -754,6 +754,8 @@ Linux
 #define NO_GETWD
 #define HAS_GETCWD
 #define FULL_TELNET
+#define HAVE_STRERROR
+#define NO_TIMEZONE
 #endif /* linux */
 /*
 
